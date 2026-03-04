@@ -563,10 +563,28 @@
     <!-- ============ SITE HEADER ============ -->
     <header class="site-header" id="site-header">
         <div class="header-inner">
-        <div class="brand-logo">KN</div>
+        <div class="brand-logo">
+    <img src="logo.jpg" alt="Kesari Nandan Consultancy Logo">
+</div>
+<style>
+    .brand-logo {
+    width: 60px;
+    height: 60px;
+}
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff6600; /* Optional border */
+}
+</style>
+
+
         <div class="brand-text">
-            <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">KESARI NANDAN CONSULTANCY</h1>
-            <p>Professional Consultancy & Banking Services</p>
+            <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">KESARI NANDAN</h1>
+            <p>Consultancy & Cyber Cafe</p>
         </div>
         <div class="header-contacts">
             <!-- Editable Address & Phone in header -->
@@ -575,7 +593,7 @@
             id="companyAddress"
             type="text"
             placeholder="📍 Company Address"
-            value=""
+            value="Shop No 11 Green park society, Katargam"
             title="Click to edit address"
             />
             <input
@@ -583,7 +601,7 @@
             id="companyMobile"
             type="tel"
             placeholder="📞 Mobile Number"
-            value=""
+            value="+91 7600617002, +91 9510141636"
             title="Click to edit mobile"
             />
         </div>
@@ -964,7 +982,7 @@
         if (!validateForm()) return;
 
         /* ── 1. Collect all form data ────────────────── */
-        const companyName    = 'KESARI NANDAN CONSULTANCY';
+        const companyName    = 'KESARI NANDAN';
         const companyAddress = document.getElementById('companyAddress').value.trim();
         const companyMobile  = document.getElementById('companyMobile').value.trim();
         const custName       = document.getElementById('custName').value.trim();
@@ -1042,12 +1060,14 @@
         doc.rect(0, 0, PW, 3, 'F');
 
         // ── Logo circle ──
-        doc.setFillColor(...C_SAFFRON);
-        doc.circle(ML + 12, 21, 11, 'F');
-        doc.setTextColor(...C_WHITE);
-        doc.setFontSize(13);
-        doc.setFont('helvetica', 'bold');
-        doc.text('KN', ML + 12, 24.5, { align: 'center' });
+      doc.addImage(
+    "logo1.png",
+    "PNG",
+    (ML + 12) - 9,   // 18/2 = 9
+    12,
+    18,
+    18
+);
 
         // ── Company Name ──
         doc.setFontSize(17);
@@ -1059,7 +1079,7 @@
         doc.setFontSize(7.5);
         doc.setFont('helvetica', 'normal');
         doc.setTextColor(180, 180,200);
-        doc.text('PROFESSIONAL CONSULTANCY & BANKING SERVICES', ML + 28, 24);
+        doc.text('CONSULTANCY & CYBER CAFE', ML + 28, 24);
 
         // ── Address & Mobile (header right) ──
         doc.setFontSize(8);
